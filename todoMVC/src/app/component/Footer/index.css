@@ -1,0 +1,11 @@
+.todo_footer {
+    margin-top: 30px;
+    background: white;
+    text-align: center;
+}
+
+.todo_footer .description {
+    color: gray;
+    font-size: small;
+    font-family: monospace;
+}

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` Todo CRUD Actions   add todo to return an action object { type, payload }  1`] = `
+Object {
+  "payload": Object {
+    "active": true,
+    "createdTime": Any<Number>,
+    "id": Any<String>,
+    "name": "Working on Unit Testing",
+  },
+  "type": "ADD_TODO",
+}
+`;

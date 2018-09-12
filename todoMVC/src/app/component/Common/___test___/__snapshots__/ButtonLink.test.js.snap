@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` ButtonLink is created and click event is captured  1`] = `
+<a
+  href="#"
+  onClick={[Function]}
+>
+  Completed
+</a>
+`;

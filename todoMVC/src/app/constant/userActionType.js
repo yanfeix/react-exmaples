@@ -1,0 +1,11 @@
+const UserAction = {
+    ADD: 'ADD_TODO',
+    REMOVE: 'REMOVE_TODO',
+    MODIFY: 'MODIFY_TODO',
+    ACTIVATE: 'ACTIVATE_TODO',
+    COMPLETE: 'COMPLETE_TODO',
+    CLEAR_COMPLETED: 'CLEAR_COMPLETED',
+    TOGGLE: 'TOGGLE_ALL',
+};
+
+export default UserAction;

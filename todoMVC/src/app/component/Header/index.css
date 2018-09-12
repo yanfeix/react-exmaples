@@ -1,0 +1,9 @@
+.todo_header {
+    text-align: center;
+}
+
+.todo_header .title {
+    color: #d58989;
+    font-size: 80px;
+    font-family: monospace;
+}
