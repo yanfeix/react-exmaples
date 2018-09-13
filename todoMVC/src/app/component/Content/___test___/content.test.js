@@ -1,14 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Content } from '../index';
-import * as L from '../../../actions';
+import Content from '../content';
+// import * as L from '../../../actions';
 import makeTodoItem from '../../../util';
 
-jest.mock('../../../actions');
+// jest.mock('../../../actions');
 
 describe(' Content component ', () => {
     const mockProp = {
-        dispatch: jest.fn(),
         filteredTodoList: [makeTodoItem('AAA'), makeTodoItem('BBB')],
         isAllCompleted: false,
         isVisible: false,
@@ -21,6 +20,14 @@ describe(' Content component ', () => {
             isAllCompleted={mockProp.isAllCompleted}
             isVisible={mockProp.isVisible}
             activeCount={mockProp.activeCount}
+            actionAddTodo={jest.fn()}
+            actionActivateTodo={jest.fn()}
+            actionCompleteTodo={jest.fn()}
+            actionRemoveTodo={jest.fn()}
+            actionModifyTodo={jest.fn()}
+            actionToggleAll={jest.fn()}
+            actionSetFilterType={jest.fn()}
+            actionClearCompletedTodo={jest.fn()}
         />,
     );
     let wrapper = initWrapper();
@@ -38,12 +45,14 @@ describe(' Content component ', () => {
         const TodoAdd = wrapper.find('TodoAdd');
         const newTodoTxt = 'TODO AAAAAAAAAAA';
         TodoAdd.simulate('EnterKeyPressed', newTodoTxt);
-        expect(L.addTodo).toHaveBeenCalledWith(newTodoTxt);
+        const { actionAddTodo } = wrapper.instance().props;
+        expect(actionAddTodo).toHaveBeenCalledWith(newTodoTxt);
     });
     it(' activateTodo is invoked ', () => {
         const TodoList = wrapper.find('TodoList');
         const todo = mockProp.filteredTodoList[0];
         TodoList.simulate('ItemActivated', todo);
-        expect(L.activateTodo).toHaveBeenCalledWith(todo);
+        const { actionActivateTodo } = wrapper.instance().props;
+        expect(actionActivateTodo).toHaveBeenCalledWith(todo);
     });
 });
